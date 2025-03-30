@@ -1,38 +1,26 @@
 package cofrinho;
 
 public abstract class Moeda {
-	protected double valor;
+    protected double valor, cambio;
     protected String pais;
 
-	public Moeda(int valor, String pais) {
-		super();
-		this.valor = valor;
-		this.pais = pais;
+    public Moeda(double valor, double cambio, String pais) {
+        this.valor = valor;
+        this.cambio = cambio;
+        this.pais = pais;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+	public double getCambio() {
+		return cambio;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + gbMemoria;
-		return result;
-	}
+    public String getPais() {
+        return pais;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Computador other = (Computador) obj;
-		if (gbMemoria != other.gbMemoria)
-			return false;
-		if (numProcessadores != other.numProcessadores)
-			return false;
-		return true;
-	}
-
-	abstract double calculaValor();
+    public abstract double converterParaReal();
 }

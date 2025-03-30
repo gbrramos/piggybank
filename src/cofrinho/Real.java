@@ -1,5 +1,12 @@
 package cofrinho;
 
-public class Real {
+public class Real extends Moeda {
+    public Real(double valor, double cambio) {
+        super(valor, cambio, "Brasil");
+    }
 
+    @Override
+    public double converterParaReal() {
+        return valor;
+    }
 }
