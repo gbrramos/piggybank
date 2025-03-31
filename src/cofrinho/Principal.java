@@ -6,7 +6,9 @@ public class Principal {
     public static void main(String[] args) {
         Cofrinho cofrinho = new Cofrinho();
         Scanner scanner = new Scanner(System.in);
-        int opcao;
+        int opcao, tipoMoeda;
+        double valor;
+        Moeda moeda;
 
         do {
             System.out.println("\nMenu:");
@@ -25,12 +27,11 @@ public class Principal {
                     System.out.println("2- Euro");
                     System.out.println("3- Real");
                     System.out.print("Opção: ");
-                    int tipoMoeda = scanner.nextInt();
+                    tipoMoeda = scanner.nextInt();
 
                     System.out.print("Digite o valor da moeda: ");
-                    double valor = scanner.nextDouble();
+                    valor = scanner.nextDouble();
 
-                    Moeda moeda;
                     switch (tipoMoeda) {
                         case 1:
                             moeda = new Dolar(valor, 5.25);
@@ -49,7 +50,31 @@ public class Principal {
                     System.out.println("Moeda adicionada!");
                     break;
                 case 2:
-                    // Implementar remoção de moeda
+                    System.out.println("Escolha o tipo de moeda:");
+                    System.out.println("1- Dólar");
+                    System.out.println("2- Euro");
+                    System.out.println("3- Real");
+                    System.out.print("Opção: ");
+                    tipoMoeda = scanner.nextInt();
+
+                    System.out.print("Digite o valor da moeda: ");
+                    valor = scanner.nextDouble();
+
+                    switch (tipoMoeda) {
+                        case 1:
+                            moeda = new Dolar(valor, 5.25);
+                            break;
+                        case 2:
+                            moeda = new Euro(valor, 6.15);
+                            break;
+                        case 3:
+                            moeda = new Real(valor, 1);
+                            break;
+                        default:
+                            System.out.println("Opção inválida.");
+                            continue;
+                    }
+                    cofrinho.removerMoeda(moeda.getValor(), moeda.getPais());
                     break;
                 case 3:
                     cofrinho.listarMoedas();
