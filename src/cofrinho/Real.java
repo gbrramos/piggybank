@@ -5,8 +5,9 @@ public class Real extends Moeda {
         super(valor, cambio, "Brasil");
     }
 
+    // @Override para sobrescrever método da superclasse
     @Override
-    public double converterParaReal() {
+    public double convert() {
         return valor;
     }
 }

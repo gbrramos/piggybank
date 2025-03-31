@@ -9,7 +9,7 @@ public class Cofrinho {
         this.moedas = new ArrayList<>();
     }
 
-    public void adicionarMoeda(Moeda moeda) {
+    public void adicionaMoedas(Moeda moeda) {
         this.moedas.add(moeda);
     }
 
@@ -36,6 +36,8 @@ public class Cofrinho {
             System.out.println("Moedas no cofrinho:");
             for (Moeda moeda : moedas) {
                 String texto; 
+
+                // Valida classe para exibir texto complementar
                 if (moeda.getClass() == Dolar.class) {
                     texto = "Dolares";
                 } else if (moeda.getClass() == Euro.class) {
@@ -53,7 +55,7 @@ public class Cofrinho {
     public double calcularTotalEmReal() {
         double total = 0;
         for (Moeda moeda : moedas) {
-            total += moeda.converterParaReal();
+            total += moeda.convert();
         }
         return total;
     }

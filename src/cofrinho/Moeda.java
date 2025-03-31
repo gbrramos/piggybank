@@ -22,5 +22,5 @@ public abstract class Moeda {
         return pais;
     }
 
-    public abstract double converterParaReal();
+    public abstract double convert();
 }

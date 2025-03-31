@@ -19,7 +19,7 @@ public class Principal {
             System.out.println("0. Sair");
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
-
+            // Switch case para validar a seleção no menu
             switch (opcao) {
                 case 1:
 					System.out.println("Escolha o tipo de moeda:");
@@ -29,9 +29,12 @@ public class Principal {
                     System.out.print("Opção: ");
                     tipoMoeda = scanner.nextInt();
 
+                    //Recupera valor da moeda
                     System.out.print("Digite o valor da moeda: ");
                     valor = scanner.nextDouble();
 
+                    // Switch case para recuperar tipo da moeda
+                    // Cambios aproximados
                     switch (tipoMoeda) {
                         case 1:
                             moeda = new Dolar(valor, 5.25);
@@ -46,7 +49,9 @@ public class Principal {
                             System.out.println("Opção inválida.");
                             continue;
                     }
-                    cofrinho.adicionarMoeda(moeda);
+
+                    // Adiciona moeda
+                    cofrinho.adicionaMoedas(moeda);
                     System.out.println("Moeda adicionada!");
                     break;
                 case 2:
@@ -74,9 +79,13 @@ public class Principal {
                             System.out.println("Opção inválida.");
                             continue;
                     }
+
+                    // Remove moedas
+                    // Parâmetros para identificar qual item remover do ArrayList
                     cofrinho.removerMoeda(moeda.getValor(), moeda.getPais());
                     break;
                 case 3:
+                    // Lista moedas
                     cofrinho.listarMoedas();
                     break;
                 case 4:

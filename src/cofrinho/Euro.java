@@ -5,8 +5,9 @@ public class Euro extends Moeda {
         super(valor, cambio, "Europa");
     }
 
+    // @Override para sobrescrever método da superclasse
     @Override
-    public double converterParaReal() {
+    public double convert() {
         return valor * cambio;
     }
 }
